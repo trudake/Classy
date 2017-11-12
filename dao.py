@@ -1,6 +1,6 @@
 
 import MySQLdb
-
+import subprocess
 def get_connection():
     return MySQLdb.connect(
 		user='root', 
@@ -28,7 +28,8 @@ def db_select(sql, params):
 def get_song_title(song_id):
     sql = """select track_title from tracks where ID = %s"""
     song_title = db_select(sql, (song_id,))
-    return song_title[0][0]
+    print song_title
+    return song_title[0]
 
 def get_num_songs():
     sql = """select COUNT(*) from tracks"""
@@ -51,6 +52,7 @@ def get_song_search_results(term):
 def get_song_recommendations(song_id):
     if song_id == None:
         return None
+    #result=subprocess.call(["train_num.py", song_id])
     return [
         (1865, 'Recommendation 1'),
         (4850, 'Recommendation 2'),
