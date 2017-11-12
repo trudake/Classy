@@ -3,8 +3,8 @@ import youtube_dl
 import os
 import datetime
 import shutil
-from flask import current_app
 
+from flask import current_app
 
 def get_youtube_song(url):
     output_dir = current_app.config['UPLOAD_FOLDER'] 
@@ -12,6 +12,7 @@ def get_youtube_song(url):
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': output_dir + '/%(title)sssss.mp3', 
+        'progress_hooks': [on_finish],
         'postprocessors': [ {
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -22,13 +23,13 @@ def get_youtube_song(url):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
 
-    fpath = os.path.join(mydir, os.listdir(mydir)[0])
-    f = file(fpath)
-    fn = os.path.basename(fpath)
-    nf = file(os.path.join(output_dir, fn))
-    os.rename(fpath, os.path.join(output_dir, fn))
 
-    shutil.rmtree(mydir)
-
-    return nf
+def on_finish(progress_args):
+    if progress_args['status'] != 'finished':
+        print('nope')
+        os.mkdir('nope')
+        return
+    print("got youtubes")
+    os.mkdir('gotit')
+    return 
 

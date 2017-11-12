@@ -14,15 +14,20 @@ app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'uploads')
 @app.route('/classy')
 def home():
     term=request.args.get('search', None)
+    print term
+    #if term is None:
+    #    term="Beethoven"
     results = get_song_search_results(term)
-    return render_template('classy.html', results=results, term=term)
+    numsongs = get_num_songs()
+    return render_template('classy.html', results=results, term=term, numsongs=numsongs)
 
 @app.route('/classy/recommend')
 def recommend():
     song_id = request.args.get('id', None)
     title = get_song_title(song_id)
     results = get_song_recommendations(song_id)
-    return render_template('recommend.html', results=results, title=title)
+    numsongs = get_num_songs()
+    return render_template('recommend.html', results=results, title=title, numsongs=numsongs)
 
 @app.route('/classy/upload', methods=['POST'])
 def upload():
@@ -39,8 +44,7 @@ def upload():
 @app.route('/classy/youtube', methods=['GET'])
 def youtube():
     url = request.args.get('url', None)
-    f = get_youtube_song(url)
-    print(f)
+    get_youtube_song(url)
     song_id = 1865
     return redirect(url_for('recommend', id=song_id))
 

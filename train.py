@@ -112,7 +112,7 @@ def train_model(df):
     df_pca = pd.DataFrame(df_pca, index = index_safe)
     return (neigh, df_pca)
 
-def return_similar(df, argv):
+def return_similar_audio(df, argv):
     features = audio_to_features(argv)
     df = df.append(features)
     model = train_model(df)[0]
@@ -125,7 +125,20 @@ def return_similar(df, argv):
         index_neighbors.append(df_pca.index.values[neighbor])
     return index_neighbors
 
+def insert_to_db(argv):
+    mysql_cn= MySQLdb.connect(host='localhost', 
+               user='root', passwd='#Phard',
+               db='classy')
+    features = audio_to_features(argv)
+    string_feat = features.to_string(index=False, header=False)
+    string_feat = ",".join([str(item) for item in string_feat.split('\n')])
+    command = 'insert into features values(UUID(), ' + string_feat + ");"
+    pd.read_sql(command, con=mysql_cn)
+    print "datapoint added to DB"
+    mysql_cn.close()
+
 def main(argv):
-    print return_similar(df_music, argv)
+    insert_to_db(argv)
+    return return_similar_audio(df_music, argv)
 if __name__ == '__main__':
     main(sys.argv[1])

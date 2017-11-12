@@ -30,6 +30,10 @@ def get_song_title(song_id):
     song_title = db_select(sql, (song_id,))
     return song_title[0][0]
 
+def get_num_songs():
+    sql = """select COUNT(*) from tracks"""
+    return int(db_select(sql, params=None)[0][0])
+
 
 # Find tracks with title matching term
 def get_song_search_results(term):
@@ -41,7 +45,7 @@ def get_song_search_results(term):
              where upper(track_title) like %s
              limit 10
     """
-    return db_select(sql, ('%' + term + '%',))
+    return db_select(sql, ('%' + term + '%',))[0]
 
 # TODO make this return actual recommendations
 def get_song_recommendations(song_id):
