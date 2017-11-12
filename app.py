@@ -3,7 +3,6 @@ from werkzeug.utils import secure_filename
 import os
 
 from dao import *
-from train import *
 from youtube import *
 
 app = Flask(__name__, static_url_path='/static')
@@ -14,9 +13,9 @@ app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'uploads')
 @app.route('/classy')
 def home():
     term=request.args.get('search', None)
-    print term
-    #if term is None:
-    #    term="Beethoven"
+    #print term
+    if term is None:
+        term="Beethoven"
     results = get_song_search_results(term)
     numsongs = get_num_songs()
     return render_template('classy.html', results=results, term=term, numsongs=numsongs)

@@ -8,6 +8,7 @@ import warnings
 from scipy import stats
 import sys
 import pandas as pd
+import pafy
 
 import numpy as np
 import MySQLdb
@@ -62,8 +63,9 @@ def audio_to_features(filepath):
         path += os.pathsep + "/home/X88/miniconda2/bin"
         os.environ["PATH"] = path
 
-    x, sr = librosa.load(filepath, sr=None, mono=True)  # kaiser_fast
-    cqt = np.abs(librosa.cqt(x, sr=sr, hop_length=512, bins_per_octave=12,
+    x= filepath
+    #x, sr = librosa.load(filepath, sr=None, mono=True)  # kaiser_fast
+    cqt = np.abs(librosa.cqt(x, sr=None, hop_length=512, bins_per_octave=12,
                                          n_bins=7*12, tuning=None))
     assert cqt.shape[0] == 7 * 12
     assert np.ceil(len(x)/512) <= cqt.shape[1] <= np.ceil(len(x)/512)+1
@@ -89,7 +91,7 @@ def audio_to_features(filepath):
     f = librosa.feature.spectral_rolloff(S=stft)
     feature_stats('spectral_rolloff', f)
 
-    mel = librosa.feature.melspectrogram(sr=sr, S=stft**2)
+    mel = librosa.feature.melspectrogram(sr=None, S=stft**2)
     del stft
     f = librosa.feature.mfcc(S=librosa.power_to_db(mel), n_mfcc=20)
     feature_stats('mfcc', f)
@@ -138,7 +140,7 @@ def insert_to_db(argv):
     mysql_cn.close()
 
 def main(argv):
-    insert_to_db(argv)
-    return return_similar_audio(df_music, argv)
+    #insert_to_db(argv)
+    print return_similar_audio(df_music, argv)
 if __name__ == '__main__':
     main(sys.argv[1])

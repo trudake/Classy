@@ -1,6 +1,9 @@
 
 import MySQLdb
 import subprocess
+
+import train_num
+
 def get_connection():
     return MySQLdb.connect(
 		user='root', 
@@ -28,8 +31,12 @@ def db_select(sql, params):
 def get_song_title(song_id):
     sql = """select track_title from tracks where ID = %s"""
     song_title = db_select(sql, (song_id,))
-    print song_title
-    return song_title[0]
+    try:
+	if len(song_title) == 0:
+            return ""
+	return song_title[0]
+    except:
+        return ""
 
 def get_num_songs():
     sql = """select COUNT(*) from tracks"""
@@ -46,16 +53,14 @@ def get_song_search_results(term):
              where upper(track_title) like %s
              limit 10
     """
-    return db_select(sql, ('%' + term + '%',))[0]
+    return db_select(sql, ('%' + term + '%',))
 
-# TODO make this return actual recommendations
+# Make this return actual recommendations
 def get_song_recommendations(song_id):
-    if song_id == None:
-        return None
-    #result=subprocess.call(["train_num.py", song_id])
-    return [
-        (1865, 'Recommendation 1'),
-        (4850, 'Recommendation 2'),
-        (4851, 'Recommendation 3'),
-        (5025, 'Recommendation 4')
-    ]
+    print(song_id)
+    #if song_id == None:
+    #    return None
+    result=train_num.main(song_id)
+    result=map(lambda id: (id, get_song_title(id)), result[0])
+    print result
+    return result

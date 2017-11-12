@@ -6,6 +6,134 @@
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
+
+<style class="cp-pen-styles">
+/*
+body,
+html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+body {
+  -webkit-perspective: 100px;
+          perspective: 100px;
+}*/
+.info {
+  margin: 20px;
+  padding: 0px 20px;
+  background-color: #ccc;
+  display: inline-block;
+}
+.trunk,
+.trunk div {
+  background: #136086;
+  will-change: transform;
+  width: 25vmin;
+  height: 2.0vmin;
+  position: fixed;
+bottom: 0;
+  margin-left: -2.5vmin;
+  -webkit-animation-name: rot;
+          animation-name: rot;
+  -webkit-animation-duration: 2.26562s;
+          animation-duration: 2.26562s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-transform-origin: 1.25vmin 1.25vmin;
+          transform-origin: 1.25vmin 1.25vmin;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+.trunk.trunk,
+.trunk div.trunk {
+  bottom: 0;
+  left: 80%;
+  -webkit-animation-name: rot-root;
+          animation-name: rot-root;
+  -webkit-animation-duration: 2.46428s;
+          animation-duration: 2.46428s;
+}
+.trunk >div,
+.trunk div >div {
+  top: 0;
+  left: 25vmin;
+  -webkit-animation-duration: calc((inherit / 2));
+          animation-duration: calc((inherit / 2));
+}
+.trunk >div:nth-child(2),
+.trunk div >div:nth-child(2) {
+  -webkit-animation-name: rot-inv;
+          animation-name: rot-inv;
+  -webkit-animation-duration: 1.777351213486541s;
+          animation-duration: 1.777351213486541s;
+}
+@-webkit-keyframes rot {
+  from {
+    -webkit-transform: rotate(15deg) scale(0.62);
+            transform: rotate(15deg) scale(0.62);
+  }
+  to {
+    -webkit-transform: rotate(45deg) scale(0.62);
+            transform: rotate(45deg) scale(0.62);
+  }
+}
+@keyframes rot {
+  from {
+    -webkit-transform: rotate(15deg) scale(0.62);
+            transform: rotate(15deg) scale(0.62);
+  }
+  to {
+    -webkit-transform: rotate(45deg) scale(0.62);
+            transform: rotate(45deg) scale(0.62);
+  }
+}
+@-webkit-keyframes rot-inv {
+  from {
+    -webkit-transform: rotate(-45deg) scale(0.62);
+            transform: rotate(-45deg) scale(0.62);
+  }
+  to {
+    -webkit-transform: rotate(-15deg) scale(0.62);
+            transform: rotate(-15deg) scale(0.62);
+  }
+}
+@keyframes rot-inv {
+  from {
+    -webkit-transform: rotate(-45deg) scale(0.62);
+            transform: rotate(-45deg) scale(0.62);
+  }
+  to {
+    -webkit-transform: rotate(-15deg) scale(0.62);
+            transform: rotate(-15deg) scale(0.62);
+  }
+}
+@-webkit-keyframes rot-root {
+  from {
+    -webkit-transform: rotate(-95deg);
+            transform: rotate(-95deg);
+  }
+  to {
+    -webkit-transform: rotate(-85deg);
+            transform: rotate(-85deg);
+  }
+}
+@keyframes rot-root {
+  from {
+    -webkit-transform: rotate(-95deg);
+            transform: rotate(-95deg);
+  }
+  to {
+    -webkit-transform: rotate(-85deg);
+            transform: rotate(-85deg);
+  }
+}
+</style>
   </head>
   <body>
     <div id="title">
@@ -25,11 +153,13 @@
         {% if results | length != 0 %}
           <ul class="results search-results">
             {% for result in results %}
-              <li>
-                <a href="/classy/recommend?id={{result[0]}}">
+              <li><object width="300" height="50"><param name="movie" 
+value="https://freemusicarchive.org/swf/trackplayer.swf"/><param name="flashvars" 
+value="track=https://freemusicarchive.org/services/playlists/embed/track/{{result[0]}}.xml"/><param name="allowscriptaccess" value="sameDomain"/><embed type="application/x-shockwave-flash" src="https://freemusicarchive.org/swf/trackplayer.swf" width="300" height="50" flashvars="track=https://freemusicarchive.org/services/playlists/embed/track/{{result[0]}}.xml" allowscriptaccess="sameDomain" /></object>
+                <a href="/classy/recommend?id={{result[0]}}"><br>
                   {{result[1].decode('utf-8')}}
                 </a>
-              </li>
+              </li><br>
             {% endfor %}
           </ul>
         {% elif results | length == 0 %}
@@ -59,5 +189,1030 @@
         <input type="submit" value="Upload">
       </form>
     </div>
+<br><br>
+
+<div class="trunk"> 
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div>
+                <div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>
