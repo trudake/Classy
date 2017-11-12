@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Classy</title>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
+  </head>
+  <body>
+    <div id="title">
+      <h1>Classy</h1>
+      <p>Insert tagline here</p>
+    </div>
+    <hr>
+    <div class="recommend-message">
+      Recommendations similar to {{title}}<br>
+      <a href="/classy">Search for Another Song</a>
+    </div>
+    {% if results != None %}
+      {% if results | length != 0 %}
+        <ul class="results recommend-results">
+          {% for result in results %}
+            <li><object width="300" height="50"><param name="movie" value="https://freemusicarchive.org/swf/trackplayer.swf"/><param name="flashvars" value="track=https://freemusicarchive.org/services/playlists/embed/track/4851.xml"/><param name="allowscriptaccess" value="sameDomain"/><embed type="application/x-shockwave-flash" src="https://freemusicarchive.org/swf/trackplayer.swf" width="300" height="50" flashvars="track=https://freemusicarchive.org/services/playlists/embed/track/{{result[0]}}.xml" allowscriptaccess="sameDomain" /></object><a href="/classy/recommend?id={{result[0]}}">{{result[1]}}</a></li>
+          {% endfor %}
+        </ul>
+      {% elif results | length == 0 %}
+        <p>No results found</p>
+      {% endif %}
+    {% endif %}
+  </body>
+</html>

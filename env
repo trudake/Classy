@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export FLASK_APP=app.py
+export FLASK_DEBUG=1
+export APP_SETTINGS=""
+export WERKZEUG_DEBUG_PIN=1111
+export PYTHONPATH=/home/X88/miniconda2/lib/python2.7/site-packages
+
+
+

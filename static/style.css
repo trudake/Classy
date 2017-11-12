@@ -1,0 +1,74 @@
+
+body {
+    width: 550px;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+}
+
+@media only screen and (min-width: 700px) {
+    body {
+        width: 700px;
+    }
+}
+
+#title {
+    text-align: center;
+}
+
+#title h1 {
+    font-family: 'Rochester', cursive;
+    font-size: 3.5em;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+.results {
+    list-style: none;
+}
+
+.results li {
+    margin: 10px;
+}
+
+.upload-form {
+    margin-top: 30px;
+}
+
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 4px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #bbb;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 20px;
+  letter-spacing: .1rem;
+  text-transform: uppercase; 
+  white-space: nowrap;
+  box-sizing: border-box; }
+
+
+input[type="email"],
+input[type="search"],
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid #D1D1D1;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  border-radius: 4px;
+  box-shadow: none;
+  background: #fff; }

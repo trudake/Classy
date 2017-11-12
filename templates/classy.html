@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Classy</title>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
+  </head>
+  <body>
+    <div id="title">
+      <h1>Classy</h1>
+      <p>Insert tagline here</p>
+    </div>
+    <hr>
+    <div class="search-form">
+      <form action="/classy">
+        <label>
+          <style="float:left;">Enter a song title</style>
+          <center><input type="text" name="search" value="{{term}}">
+        </label>
+        <input type="submit" value="Search"></center>
+      </form>
+      {% if results != None %}
+        {% if results | length != 0 %}
+          <ul class="results search-results">
+            {% for result in results %}
+              <li>
+                <a href="/classy/recommend?id={{result[0]}}">
+                  {{result[1].decode('utf-8')}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% elif results | length == 0 %}
+          <p>No results found</p>
+        {% endif %}
+      {% endif %}
+    </div><br><br><br>
+    <div class="youtube-form">
+      <form class="youtube-form"
+            action="/classy/youtube">
+        <label>
+          <style="float: left;">Or give a youtube url </style>
+          <center><input type="text" name="url">
+        </label>
+        <input type="submit" value="Select"></center>
+      </form>
+    </div><br><br>
+    <div class="upload-form">
+      <form class="upload-form"
+            action="/classy/upload"
+            method="post"
+            enctype="multipart/form-data">
+        <label>
+          Or upload your own file
+          <input type="file" name="file">
+        </label>
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+  </body>
+</html>
