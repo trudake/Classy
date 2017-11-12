@@ -15,7 +15,7 @@ def home():
     term=request.args.get('search', None)
     #print term
     if term is None:
-        term="Beethoven"
+        term="Mussorgsky"
     results = get_song_search_results(term)
     numsongs = get_num_songs()
     return render_template('classy.html', results=results, term=term, numsongs=numsongs)

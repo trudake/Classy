@@ -1,10 +1,10 @@
 html {
-    background: linear-gradient(106deg, #dad5be, #dbb7cb);
+    background: linear-gradient(106deg, #f7b7b7, #8bb8d7);
     background-size: 400% 400%;
 
-    -webkit-animation: AnimationName 42s ease infinite;
-    -moz-animation: AnimationName 42s ease infinite;
-    animation: AnimationName 42s ease infinite;
+    -webkit-animation: AnimationName 20s ease infinite;
+    -moz-animation: AnimationName 20s ease infinite;
+    animation: AnimationName 20s ease infinite;
 
     @-webkit-keyframes AnimationName {
         0%{background-position:0% 42%}
@@ -56,10 +56,17 @@ hr {
 
 .results li {
     margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .upload-form {
     margin-top: 30px;
+}
+
+.results a {
+    margin: 20px;
 }
 
 

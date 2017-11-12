@@ -34,7 +34,7 @@ def get_song_title(song_id):
     try:
 	if len(song_title) == 0:
             return ""
-	return song_title[0]
+	return song_title[0][0]
     except:
         return ""
 
